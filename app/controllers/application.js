@@ -31,8 +31,9 @@ export default Controller.extend({
             holidaysData.push({'name': holiday.get('name'), 'date': holiday.get('date')});
           })
           controller.set('holidays', holidaysData)
+          controller.toggleProperty('showCalendar')
         });
-        this.toggleProperty('showCalendar')
+
       } catch (e){
           console.log(e);
       }

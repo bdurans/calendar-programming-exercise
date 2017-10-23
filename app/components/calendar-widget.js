@@ -6,20 +6,16 @@ export default Component.extend({
   startDate: 0,
   month: 0,
   weekDays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-  patito: '',
   currentPage: 0,
-  monthDays: [
-    {
-      'days': ['enero 1', 'enero2' ]
-    },
-    {
-      'days': ['february1', 'february2']
-    },
-  ],
+  monthDays: [],
 
   init() {
     this._super(...arguments);
-    this.set('patito', 'PATITO INIT')
+    let totalDays = this.get('totalDays');
+    let initialMonth = this.get('initialMonth');
+    let initialYear = this.get('initialYear');
+    let holidays = processHolidays(this.get('holidays'));
+    setMonthDays(totalDays, initialMonth, initialYear, holidays);
   },
 
   currentMonthDays: Ember.computed('currentPage', 'monthDays', function() {
@@ -32,3 +28,26 @@ export default Component.extend({
     }
   }
 });
+
+
+function processHolidays(holidays) {
+  return holidays.map(function(holiday) {
+    let date = holiday['date'];
+    return {
+      'name': holiday['name'],
+      'date': {
+        'day': date.getDate(),
+        'month': date.getMonth()+1,
+        'year': date.getFullYear()
+      }
+    }
+  })
+}
+
+function setMonthDays() {
+
+}
+
+// function daysInMonth(month, year) {
+//   return new Date(year, month, 0).getDate();
+// }
