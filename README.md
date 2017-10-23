@@ -3,6 +3,22 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+## Requirements not implement
+I focused first in consuming the API of holidays and processing the information and that left with not enought time for finishing the following requirements: 
+* Render a calendar that spans as many weeks 
+* The days should be color coded
+* Rollover label on Holidays. 
+
+## List of bugs
+* The form doesn't have the enought validations on the fields to ensure that there will be no errors
+* If the user writes and invalidad country code the application will fail
+
+## Things I would do if I had more time to complete the task:
+* My idea was to create an object based on the information given, this object would be an array of months and each month would have weeks and each week would have days. Each month object would have valid and invalid days that would be used to render the calendar. If a day match with one of the holidays, it would have extra information to be used on the render of the calendar.
+* I would add a previous and next month buttons (two arrows), to switch between the months. There is a computed property in the calendar-widget component that will update the information based on the current position, then the information will be updated with something like `this.get('months')[position]`
+* For the colors of the days in the calendar, each day object would have the respective color as `key:value`, so it will green by default, unless the day match with a holiday or if is the first or the last day, since the weeks start on Sunday and finish in Saturday.
+
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
