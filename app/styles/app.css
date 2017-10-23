@@ -1,0 +1,23 @@
+body {
+  margin: auto;
+  width: 50%;
+}
+
+.center {
+  text-align: center
+}
+
+.calendar-form {
+  margin-top: 30%
+}
+
+.calendar-widget {
+ margin-top: 8%;
+ text-align: center;
+}
+
+.week-day {
+  display: inline;
+  padding: 5.1%;
+  background: #778899;
+}

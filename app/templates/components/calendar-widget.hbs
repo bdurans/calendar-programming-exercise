@@ -1,0 +1,15 @@
+<div>
+{{#each weekDays as |weekDay|}}
+<div class='week-day'>
+ {{weekDay}}
+</div>
+{{/each}}
+</div>
+
+<div>
+{{#each currentMonthDays as |day|}}
+<div> {{day}} </div>
+{{/each}}
+</div>
+
+<button {{action "changePage"}}> Change page </button>

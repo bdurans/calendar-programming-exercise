@@ -1,5 +1,12 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+{{calendar-form processCalendarInfo="processCalendarInfo"}}
+<br>
+{{#if showCalendar}}
+{{/each}}
+ {{calendar-widget
+   totalDays=totalDays
+   startDate=startDate
+   initialMonth=initialMonth
+   initialDay=initialDay
+   initialYear=initialYear
+   holidays=holidays}}
+{{/if}}

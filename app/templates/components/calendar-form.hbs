@@ -1,0 +1,20 @@
+<h2 class='center'>Calendar <img src="number8.png"></h2>
+<div class= 'center'>
+  <label>Start date </label>
+  {{input-mask
+  value=startDate
+  mask='mm/dd/yyyy'}}
+  <br>
+  <label>Number of days </label>
+  {{input-mask
+  value=totalDays}}
+  <br>
+  <label>Country Code </label>
+  {{input-mask
+  value=countryCode}}
+  <br>
+  <button {{action "callAPI"}}>Show Calendar</button>
+</div>
+{{#if showCalendar}}
+{{startDate}}
+{{/if}}
