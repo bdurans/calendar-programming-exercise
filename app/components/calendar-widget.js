@@ -7,19 +7,21 @@ export default Component.extend({
   month: 0,
   weekDays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
   currentPage: 0,
-  monthDays: [],
+  monthWeeks: [],
 
   init() {
     this._super(...arguments);
     let totalDays = this.get('totalDays');
+    let initialDay = this.get('initialDay');
     let initialMonth = this.get('initialMonth');
     let initialYear = this.get('initialYear');
     let holidays = processHolidays(this.get('holidays'));
-    setMonthDays(totalDays, initialMonth, initialYear, holidays);
+    let monthWeeks = setMonthWeeks(totalDays, initialDay, initialMonth, initialYear, holidays);
+    this.set('monthDays', monthWeeks)
   },
 
-  currentMonthDays: Ember.computed('currentPage', 'monthDays', function() {
-    return this.get('monthDays')[this.get('currentPage')].days;
+  currentMonthWeeks: Ember.computed('currentPage', 'monthWeeks', function() {
+    return this.get('monthWeeks')[this.get('currentPage')].weeks;
   }),
 
   actions: {
@@ -44,10 +46,22 @@ function processHolidays(holidays) {
   })
 }
 
-function setMonthDays() {
-
+function setMonthWeeks(totalDays, initialDay, initialMonth, initialYear, holidays) {
+  let totalDaysFirstMonth = daysInMonth(initialMonth, initialYear);
+  let monthWeeks = [];
+  let weeksFirstMonth = [];
+  let week = [];
+  for (let i = 1; i <= totalDaysFirstMonth; i++) {
+    if (i >= initialDay) {
+      weeksFirstMonth.push(i);
+    } else {
+      weeksFirstMonth.push(null);
+    }
+  }
+  monthWeeks.push({'weeks': weeksFirstMonth});
+  return monthWeeks;
 }
 
-// function daysInMonth(month, year) {
-//   return new Date(year, month, 0).getDate();
-// }
+function daysInMonth(month, year) {
+  return new Date(year, month, 0).getDate();
+}

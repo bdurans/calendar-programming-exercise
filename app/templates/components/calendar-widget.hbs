@@ -4,13 +4,21 @@
  {{weekDay}}
 </div>
 {{/each}}
+<br>
+<table style="width:100%">
+  {{#each currentMonthWeeks as |weeks|}}
+    <tr>
+      {{#each weeks as |day|}}
+        {{#if day}}
+          <th class='normal-date'>{{day}}</th>
+        {{else}}
+          <th class='invalid-date'></th>
+        {{/if}}
+      {{/each}}
+    </tr>
+  {{/each}}
+</table>
+
 </div>
 
-<div>
-{{#each currentMonthDays as |day|}}
-<div> {{day}} </div>
-{{/each}}
-</div>
-<label>initial month{{initialMonth}} </label>
-
-<button {{action "changePage"}}> Change page </button>
+{{!-- <button {{action "changePage"}}> Change page </button> --}}
