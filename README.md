@@ -1,8 +1,5 @@
 # calendar-programming-exercise
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 ## Requirements not implement
 I focused first in consuming the API of holidays and processing the information and that left with not enought time for finishing the following requirements: 
 * Render a calendar that spans as many weeks 
