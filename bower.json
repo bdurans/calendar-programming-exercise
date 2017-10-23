@@ -1,0 +1,7 @@
+{
+  "name": "calendar-programming-exercise",
+  "dependencies": {
+    "jquery.inputmask": "^3.3.10",
+    "moment": "^2.19.1"
+  }
+}
